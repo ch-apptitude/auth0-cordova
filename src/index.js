@@ -115,10 +115,7 @@ CordovaAuth.prototype.authorize = function (parameters, callback) {
         }
       }
 
-      if (result.event !== 'loaded') {
-        // Ignore any other events.
-        return;
-      }
+      session.clean();
 
       session.start(function (sessionError, redirectUrl) {
         if (sessionError != null) {
